@@ -18,15 +18,13 @@ def runJukebox():
 
 
 class RequestItem(BaseModel):
-    song_name: str = Field(None,  alias="song", example="Darude Sandstorm")
+    from_: str = Field(None,  alias="song", example="Darude Sandstorm")
 
 @app.post("/songrequest")
 async def addSongToQueue(item: RequestItem):
-    # scrape YT for search result
+    global jkbox
 
-    # yt-dlp the link
-
-    # add to queue
+    jkbox.add
 
     return "test-addSongToQueue"
 
@@ -48,7 +46,7 @@ async def skip():
 def main():
     musicplayer = threading.Thread(name="jukebox", target=runJukebox)
 
-    uvicorn.run("main:app", host="127.0.0.1", port=2112, log_level="info", reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=2112, log_level="info", reload=True)
 
 if __name__ == "__main__":
     main()

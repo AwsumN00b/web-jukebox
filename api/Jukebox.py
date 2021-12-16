@@ -12,9 +12,10 @@ class Jukebox:
         self.current = None
 
     def add(self, song):
+        self.dl(song)
         self.q.append(song)
 
-    def dl(self):
+    def dl(self, song):
         subprocess.run([
             "yt-dlp", "-x", "--audio-format", "mp3", "\"ytsearch:"+song+"\"", "-o", "songs/"])
 
