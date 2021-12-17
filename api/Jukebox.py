@@ -17,7 +17,8 @@ class Jukebox:
 
     def dl(self, song):
         subprocess.run([
-            "yt-dlp", "-x", "--audio-format", "mp3", "\"ytsearch:"+song+"\"", "-o", "songs/"])
+            "yt-dlp", "-xf", "ba", "--audio-format", "mp3", "\"ytsearch:"+song+"\"", "-o", "songs/%(title)s.%(ext)s"
+            ])
 
     def play(self):
         global master
@@ -33,5 +34,3 @@ class Jukebox:
         while True:
             if len(self.q) != 0:
                 self.play()
-
-        

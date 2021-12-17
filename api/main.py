@@ -24,7 +24,7 @@ class RequestItem(BaseModel):
 async def addSongToQueue(item: RequestItem):
     global jkbox
 
-    jkbox.add
+    jkbox.add(RequestItem.from_)
 
     return "test-addSongToQueue"
 
