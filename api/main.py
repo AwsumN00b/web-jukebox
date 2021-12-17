@@ -18,13 +18,13 @@ def runJukebox():
 
 
 class RequestItem(BaseModel):
-    from_: str = Field(None,  alias="song", example="Darude Sandstorm")
+    song: str = Field(None, example="Darude Sandstorm")
 
 @app.post("/songrequest")
 async def addSongToQueue(item: RequestItem):
     global jkbox
 
-    jkbox.add(RequestItem.from_)
+    jkbox.add(item.song)
 
     return "test-addSongToQueue"
 
